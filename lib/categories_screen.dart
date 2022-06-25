@@ -9,21 +9,26 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      children: <Widget>[
-        ...(DUMMY_CATEGORIES.map((e) => CategoryItem(e.title, e.color)))
-            .toList()
-      ],
-      //here we are specfying the parameter on how the grid shoudl look
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        //max number of pixels should be occupied by each element
-        maxCrossAxisExtent: 200,
-        //aspect ratio of each element
-        childAspectRatio: 3 / 2,
-        //spacing between two elements in horizontal direction
-        crossAxisSpacing: 20,
-        //spacing between two elements in vertical direction
-        mainAxisSpacing: 20,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Meal App"),
+      ),
+      body: GridView(
+        children: <Widget>[
+          ...(DUMMY_CATEGORIES.map((e) => CategoryItem(e.title, e.color)))
+              .toList()
+        ],
+        //here we are specfying the parameter on how the grid shoudl look
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          //max number of pixels should be occupied by each element
+          maxCrossAxisExtent: 200,
+          //aspect ratio of each element
+          childAspectRatio: 3 / 2,
+          //spacing between two elements in horizontal direction
+          crossAxisSpacing: 20,
+          //spacing between two elements in vertical direction
+          mainAxisSpacing: 20,
+        ),
       ),
     );
   }

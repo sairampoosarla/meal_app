@@ -13,7 +13,11 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Text(title),
+      margin: EdgeInsets.all(10),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.bodyText1,
+      ),
       color: color,
       elevation: 10,
       shape: RoundedRectangleBorder(
