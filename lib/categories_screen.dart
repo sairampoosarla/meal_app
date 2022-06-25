@@ -1,6 +1,8 @@
 //import 'package:flutter/src/foundation/key.dart';
 //import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import './dummy_data.dart';
+import './category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -8,9 +10,12 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      children: <Widget>[],
+      children: <Widget>[
+        ...(DUMMY_CATEGORIES.map((e) => CategoryItem(e.title, e.color)))
+            .toList()
+      ],
       //here we are specfying the parameter on how the grid shoudl look
-      gridDelegate: SilverGridDelegateWithMaxCrossAxisExtent(
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         //max number of pixels should be occupied by each element
         maxCrossAxisExtent: 200,
         //aspect ratio of each element
