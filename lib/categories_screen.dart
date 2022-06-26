@@ -15,7 +15,7 @@ class CategoriesScreen extends StatelessWidget {
       ),
       body: GridView(
         children: <Widget>[
-          ...(DUMMY_CATEGORIES.map((e) => CategoryItem(e.title, e.color)))
+          ...(DUMMY_CATEGORIES.map((e) => CategoryItem(e.id, e.title, e.color)))
               .toList()
         ],
         //here we are specfying the parameter on how the grid shoudl look
