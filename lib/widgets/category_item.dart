@@ -1,7 +1,7 @@
 //import 'package:flutter/src/foundation/key.dart';
 //import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import './category_meal_screen.dart';
+import '../screens/category_meal_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   //const CategoryItem({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './categories_screen.dart';
-import './category_meal_screen.dart';
+import './screens/categories_screen.dart';
+import './screens/category_meal_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -84,3 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+//new file
+//category_meal_screen

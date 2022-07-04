@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:meal_app/dummy_data.dart';
 
 class CategoryMealScreen extends StatelessWidget {
   //const CategoryMeanScreen({Key? key}) : super(key: key);
@@ -16,13 +17,15 @@ class CategoryMealScreen extends StatelessWidget {
         ModalRoute.of(context)?.settings.arguments as Map<String, String>;
     final title = routeArgs['title'] as String;
     final id = routeArgs['id'];
+    final categoryMeal = DUMMY_MEALS.where((meal) {
+      return meal.categories.contains(id);
+    }).toList();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text('The Recipe for the meal is on this screen!'),
-      ),
-    );
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: ListView.builder(itemBuilder: (ctx, index) {
+          return Text(categoryMeal[index].title);
+        }));
   }
 }
