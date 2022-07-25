@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:meal_app/screens/meal_detail_screen.dart';
+import './screens/filter_screen.dart';
+import './screens/meal_detail_screen.dart';
 import './screens/categories_screen.dart';
 import './screens/category_meal_screen.dart';
+import './screens/tabs_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => TabsScreen(),
         CategoryMealScreen.routeName: (ctx) => CategoryMealScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FilterScreen.routeName: (ctx) => FilterScreen(),
       },
       //if we are using named routes and there are chances of not putting correct names route
       // in such case this function is implemented
