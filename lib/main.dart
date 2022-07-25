@@ -14,31 +14,46 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Meal App',
-        theme: ThemeData(
-            // This is the theme of your application.
-            primarySwatch: Colors.pink,
-            accentColor: Colors.amber,
-            canvasColor: Color.fromRGBO(255, 254, 249, 1),
-            fontFamily: 'Raleway',
-            textTheme: ThemeData.light().textTheme.copyWith(
-                  bodyText1: TextStyle(color: Color.fromRGBO(51, 51, 51, 1)),
-                  bodyText2: TextStyle(color: Color.fromRGBO(51, 51, 51, 1)),
-                  headline6: TextStyle(
-                    fontSize: 19,
-                    fontFamily: 'RobotoCondensed',
-                    fontWeight: FontWeight.bold,
-                  ),
-                )),
-        // the home screen to be rendered when app startes has to be mentioned below
-        home: CategoriesScreen(),
-        routes: {
-          //here we can directly place the name or to avoid typo we can have
-          //name saved as property in a class and use the property when required.
-          //'/category-meals': (ctx) => CategoryMealScreen(),
-          CategoryMealScreen.routeName: (ctx) => CategoryMealScreen(),
-          MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
-        });
+      title: 'MealApp',
+      theme: ThemeData(
+          // This is the theme of your application.
+          primarySwatch: Colors.pink,
+          accentColor: Colors.amber,
+          canvasColor: Color.fromRGBO(255, 254, 249, 1),
+          fontFamily: 'Raleway',
+          textTheme: ThemeData.light().textTheme.copyWith(
+                bodyText1: TextStyle(color: Color.fromRGBO(51, 51, 51, 1)),
+                bodyText2: TextStyle(color: Color.fromRGBO(51, 51, 51, 1)),
+                titleLarge: TextStyle(
+                  fontSize: 19,
+                  fontFamily: 'RobotoCondensed',
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
+      // the home screen to be rendered when app startes has to be mentioned below
+      //home: CategoriesScreen(),
+      initialRoute: '/', //default is '/'
+      routes: {
+        //here we can directly place the name or to avoid typo we can have
+        //name saved as property in a class and use the property when required.
+        //'/category-meals': (ctx) => CategoryMealScreen(),
+        '/': (ctx) => TabsScreen(),
+        CategoryMealScreen.routeName: (ctx) => CategoryMealScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+      },
+      //if we are using named routes and there are chances of not putting correct names route
+      // in such case this function is implemented
+      onGenerateRoute: (settings) {
+        print(settings.arguments);
+      },
+      //this function is implemented when the required named path is not present in routes
+      //and onGenerateRoute function as well is not defined or not present
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => CategoriesScreen(),
+        );
+      },
+    );
   }
 }
 

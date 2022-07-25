@@ -7,6 +7,7 @@ class MealItem extends StatelessWidget {
   //const MealItem({Key? key}) : super(key: key);
 
   //getting the data that is required for the meal item to be shown
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -15,7 +16,8 @@ class MealItem extends StatelessWidget {
 
   //constructor for the meal item and we are having the named arguments
   MealItem(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.imageUrl,
       required this.duration,
       required this.complexity,
